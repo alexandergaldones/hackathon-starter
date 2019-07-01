@@ -1,0 +1,47 @@
+extends ../layout
+
+block content
+    .pb-2.mt-2.mb-4.border-bottom
+        h3 Search Customer
+    
+
+    form(method='POST')
+        input(type=`hidden` name='_csrf', value=_csrf)
+
+        .form-group.row
+            label(class='col-md-2 col-form-label font-weight-bold', for='name') Name
+            .col-md-4
+                input.form-control(type='text', name='name', id='name', autocomplete='name', autofocus=true)
+        .form-group.row
+            label(class='col-md-2 col-form-label font-weight-bold', for='email') Email
+            .col-md-4
+                input.form-control(type='text', name='email', id='email', autocomplete='email', autofocus=true)
+        .form-group.row
+            label(class='col-md-2 col-form-label font-weight-bold', for='mobileNumber') Mobile Number
+            .col-md-4
+                input.form-control(type='text', name='mobileNumber', id='mobileNumber', autocomplete='mobileNumber', autofocus=true)                
+        
+        .form-group.row
+            .offset-md-0.col-md-8.p-1
+                button.btn.btn-primary(type='submit')
+                    i.far.fa-check-circle.fa-sm
+                    | Search
+        
+
+    .table-responsive
+    table.table.table-striped.table-sm
+        thead
+        tr
+            th #
+            th Name
+            th Email
+            th Mobile Number
+            th Description
+        tbody
+        for customer in customers 
+            tr
+                td=customer._id
+                td=customer.name
+                td=customer.email
+                td=customer.mobileNumber
+                td=customer.details

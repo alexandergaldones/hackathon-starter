@@ -16,6 +16,16 @@
           a.nav-link(href='/contact') Contact
         li.nav-item(class=(title === 'Status') ? 'active' : undefined)
           a.nav-link(href='/status') Status
+        li.dropdown(class=Cu).nav-item
+          a.dropdown-toggle.nav-link(href='#', data-toggle='dropdown')
+            span Customer
+            i.caret
+          ul.dropdown-menu
+              li.dropdown-item
+                a(href='/customer') New Customer
+              li.divider.dropdown-item
+              li.dropdown-item
+                a(href='/customer/search') Search Customer
       ul.nav.navbar-nav.ml-auto
         if !user
           li.nav-item(class=(title === 'Login') ? 'active' : undefined)
